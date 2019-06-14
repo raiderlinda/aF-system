@@ -12,7 +12,13 @@ client.user.setGame(`.`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`**- Hello , ${member} :cocktail: **
+**       - You Are in a Big Community :dove: **
+  **              - Milan, :yellow_heart:**`) 
+}).catch(console.error)
+})
 
    client.on('message', message => {
     if (message.content.startsWith("*avatar")) {
